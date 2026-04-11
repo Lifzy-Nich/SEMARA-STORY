@@ -5,42 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price List Semara Story</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: #333; }
-        iframe { border: none; width: 100%; height: 100%; }
+        /* Menghilangkan margin dan memastikan layar penuh */
+        html, body { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: white; }
+        
+        /* Mengatur Iframe PDF agar memenuhi layar */
+        .pdf-container { width: 100%; height: 100%; border: none; }
 
         /* Gaya Tombol WhatsApp Melayang */
         .wa-float {
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25d366;
             color: #FFF;
             border-radius: 50px;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 1000;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
         }
 
-        .wa-float:hover {
-            background-color: #128C7E;
-        }
-
-        .wa-icon {
-            width: 35px;
-            height: 35px;
-        }
+        .wa-icon { width: 35px; height: 35px; }
     </style>
 </head>
 <body>
 
-    <iframe src="https://docs.google.com/viewer?url=https://lifzy-nich.github.io/SEMARA-STORY/PRICE%20LIST%20SEMARA%20STORY.pdf&embedded=true"></iframe>
+    <iframe class="pdf-container" src="https://docs.google.com/viewer?url=https://lifzy-nich.github.io/SEMARA-STORY/PRICE%20LIST%20SEMARA%20STORY.pdf&embedded=true"></iframe>
 
     <a href="https://wa.me/6287750700748?text=Halo%20Semara%20Story,%20saya%20ingin%20tanya%20tentang%20Price%20List" class="wa-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
