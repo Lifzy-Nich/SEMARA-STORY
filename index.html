@@ -5,40 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price List Semara Story</title>
     <style>
-        /* Menghilangkan margin dan memastikan layar penuh */
         html, body { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: white; }
         
-        /* Mengatur Iframe PDF agar memenuhi layar */
-        .pdf-container { width: 100%; height: 100%; border: none; }
+        /* Wadah Utama */
+        .container { position: relative; width: 100%; height: 100%; }
 
-        /* Gaya Tombol WhatsApp Melayang */
+        /* Iframe PDF */
+        iframe { border: none; width: 100%; height: 100%; }
+
+        /* Penutup Ikon Panah (Kanan Atas) */
+        .blocker-top {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px; /* Lebar area yang ditutup */
+            height: 60px;
+            background-color: #f1f3f4; /* Warna ini biasanya cocok dengan background viewer */
+            z-index: 10;
+        }
+
+        /* Tombol WhatsApp */
         .wa-float {
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 30px;
-            right: 30px;
+            bottom: 80px; /* Naik sedikit agar tidak tertutup bar halaman */
+            right: 20px;
             background-color: #25d366;
-            color: #FFF;
             border-radius: 50px;
-            text-align: center;
-            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 2px 5px 10px rgba(0,0,0,0.2);
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
         }
-
         .wa-icon { width: 35px; height: 35px; }
     </style>
 </head>
 <body>
 
-    <iframe class="pdf-container" src="https://docs.google.com/viewer?url=https://lifzy-nich.github.io/SEMARA-STORY/PRICE%20LIST%20SEMARA%20STORY.pdf&embedded=true"></iframe>
+    <div class="container">
+        <div class="blocker-top"></div>
 
-    <a href="https://wa.me/6287750700748?text=Halo%20Semara%20Story,%20saya%20ingin%20tanya%20tentang%20Price%20List" class="wa-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+        <iframe src="https://docs.google.com/viewer?url=https://lifzy-nich.github.io/SEMARA-STORY/PRICE%20LIST%20SEMARA%20STORY.pdf&embedded=true"></iframe>
+    </div>
+
+    <a href="https://wa.me/6287750700748" class="wa-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" class="wa-icon">
     </a>
 
 </body>
