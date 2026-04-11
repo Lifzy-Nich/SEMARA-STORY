@@ -2,57 +2,133 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Price List Semara Story</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
     <style>
-        html, body { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: white; }
-        
-        /* Wadah Utama */
-        .container { position: relative; width: 100%; height: 100%; }
-
-        /* Iframe PDF */
-        iframe { border: none; width: 100%; height: 100%; }
-
-        /* Penutup Ikon Panah (Kanan Atas) */
-        .blocker-top {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px; /* Lebar area yang ditutup */
-            height: 60px;
-            background-color: #f1f3f4; /* Warna ini biasanya cocok dengan background viewer */
-            z-index: 10;
+        /* Mengatur layar penuh tanpa margin, warna latar belakang bersih */
+        html, body { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: white; /* Latar belakang putih bersih */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Memulai PDF dari atas */
         }
 
-        /* Tombol WhatsApp */
+        /* Container untuk menampung PDF render */
+        #pdf-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto; /* Memungkinkan scroll vertikal jika PDF panjang */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Canvas tempat PDF dirender (satu canvas per halaman) */
+        canvas {
+            display: block;
+            max-width: 100%; /* Memastikan PDF tidak lebih lebar dari layar */
+            height: auto; /* Menjaga aspek rasio PDF */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Efek bayangan halus */
+            margin-bottom: 10px; /* Jarak antar halaman */
+        }
+
+        /* Gaya Tombol WhatsApp Melayang - Diperbarui agar lebih rapi */
         .wa-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 80px; /* Naik sedikit agar tidak tertutup bar halaman */
-            right: 20px;
+            width: 65px; /* Sedikit lebih besar untuk HP */
+            height: 65px;
+            bottom: 30px; /* Jarak dari bawah */
+            right: 30px; /* Jarak dari kanan */
             background-color: #25d366;
-            border-radius: 50px;
-            box-shadow: 2px 5px 10px rgba(0,0,0,0.2);
-            z-index: 9999;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 2px 10px 20px rgba(0,0,0,0.3); /* Bayangan lebih kuat */
+            z-index: 99999; /* Memastikan paling depan */
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease; /* Efek halus saat di-hover */
         }
-        .wa-icon { width: 35px; height: 35px; }
+
+        .wa-float:hover {
+            transform: scale(1.1); /* Sedikit membesar saat disentuh */
+            background-color: #128C7E;
+        }
+
+        .wa-icon { 
+            width: 40px; 
+            height: 40px; 
+        }
+
+        /* Menghilangkan elemen visual tambahan PDF.js jika ada */
+        .pdf-page {
+            position: relative;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="blocker-top"></div>
+    <div id="pdf-container"></div>
 
-        <iframe src="https://docs.google.com/viewer?url=https://lifzy-nich.github.io/SEMARA-STORY/PRICE%20LIST%20SEMARA%20STORY.pdf&embedded=true"></iframe>
-    </div>
-
-    <a href="https://wa.me/6287750700748" class="wa-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" class="wa-icon">
+    <a href="https://wa.me/6287750700748?text=Halo%20Semara%20Story,%20saya%20ingin%20tanya%20tentang%20Price%20List" class="wa-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
     </a>
 
+    <script>
+        // URL file PDF Anda di GitHub Pages
+        const url = 'https://lifzy-nich.github.io/SEMARA-STORY/PRICE%20LIST%20SEMARA%20STORY.pdf';
+
+        // Mengatur worker src PDF.js (wajib)
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        // Memuat dokumen PDF
+        const loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            console.log('PDF dimuat');
+            
+            // Merender semua halaman PDF
+            const container = document.getElementById('pdf-container');
+            for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+                pdf.getPage(pageNumber).then(function(page) {
+                    console.log('Halaman ' + pageNumber + ' dimuat');
+                    
+                    // Mengatur skala agar sesuai lebar layar
+                    const viewport = page.getViewport({scale: 1});
+                    const scale = container.clientWidth / viewport.width;
+                    const scaledViewport = page.getViewport({scale: scale});
+
+                    // Membuat canvas untuk merender halaman
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = scaledViewport.height;
+                    canvas.width = scaledViewport.width;
+
+                    // Merender halaman PDF ke dalam canvas
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: scaledViewport
+                    };
+                    const renderTask = page.render(renderContext);
+                    renderTask.promise.then(function() {
+                        console.log('Halaman ' + pageNumber + ' selesai dirender');
+                    });
+
+                    // Menambahkan canvas ke container utama
+                    container.appendChild(canvas);
+                });
+            }
+        }, function (reason) {
+            // Menangani kesalahan pemuatan
+            console.error('Gagal memuat PDF: ' + reason);
+        });
+    </script>
 </body>
 </html>
