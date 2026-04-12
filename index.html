@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Semara.Story | Bali Photography</title>
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +42,10 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .bali-wrapper {
@@ -80,6 +85,7 @@
             color: var(--heading-color);
             text-shadow: 2px 2px 0 rgba(212, 175, 122, 0.12);
             margin-bottom: 0.25rem;
+            -webkit-text-size-adjust: 100%;
         }
         .subhead {
             font-size: 1rem;
@@ -103,8 +109,9 @@
             cursor: pointer;
             user-select: none;
             transition: all 0.2s;
+            -webkit-tap-highlight-color: transparent;
         }
-        .easter-egg-trigger:hover {
+        .easter-egg-trigger:active {
             background: #dac9b8;
             transform: scale(0.98);
         }
@@ -132,6 +139,8 @@
             max-width: 400px;
             margin: 0 auto;
             transition: transform 0.2s, box-shadow 0.2s;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         /* Gambar - 6 slot sesuai 6 halaman PDF */
@@ -151,15 +160,35 @@
             background-repeat: no-repeat;
             background-color: #dccfc2;
             transition: background-image 0.3s;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
-        /* Default background images */
-        .img-indoor { background-image: radial-gradient(circle at 30% 40%, #b29178 0%, #d9c3b0 80%); }
-        .img-outdoor { background-image: linear-gradient(145deg, #a48d78, #cdbbaa); }
-        .img-grad { background-image: linear-gradient(45deg, #b89a80, #ddcbbc); }
-        .img-pawiwahan1 { background-image: repeating-linear-gradient(30deg, #9f8872 0px, #cbb7a4 4px); }
-        .img-pawiwahan2 { background-image: radial-gradient(circle at 70% 20%, #c7ae97, #a58c77); }
-        .img-memadik { background-image: linear-gradient(120deg, #b59c86, #8f7b68); }
+        /* Default background images - menggunakan solid color fallback */
+        .img-indoor { 
+            background: #cfbcab;
+            background-image: radial-gradient(circle at 30% 40%, #b29178 0%, #d9c3b0 80%);
+        }
+        .img-outdoor { 
+            background: #b8aa99;
+            background-image: linear-gradient(145deg, #a48d78, #cdbbaa);
+        }
+        .img-grad { 
+            background: #c6b19b;
+            background-image: linear-gradient(45deg, #b89a80, #ddcbbc);
+        }
+        .img-pawiwahan1 { 
+            background: #b7a088;
+            background-image: repeating-linear-gradient(30deg, #9f8872 0px, #cbb7a4 4px);
+        }
+        .img-pawiwahan2 { 
+            background: #ac947d;
+            background-image: radial-gradient(circle at 70% 20%, #c7ae97, #a58c77);
+        }
+        .img-memadik { 
+            background: #9e8a76;
+            background-image: linear-gradient(120deg, #b59c86, #8f7b68);
+        }
 
         /* Perbaikan untuk gambar custom */
         .card-img[style*="background-image"] {
@@ -249,7 +278,7 @@
             font-weight: 500;
             border: 1px solid #dac2ae;
             width: fit-content;
-            }
+        }
                     /* Floating WA/IG */
         .floating-social {
             position: fixed;
@@ -271,7 +300,9 @@
             color: white;
             box-shadow: 0 8px 18px rgba(0,0,0,0.2);
             text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
         }
+        .floating-btn:active { opacity: 0.8; }
         .wa-btn { background: #25D366; }
         .ig-btn { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
@@ -290,6 +321,7 @@
             overflow-y: auto;
             transition: right 0.35s ease;
             border-left: 2px solid #b48b5a;
+            -webkit-overflow-scrolling: touch;
         }
         .customizer-panel.active {
             right: 0;
@@ -312,6 +344,7 @@
             font-size: 24px;
             cursor: pointer;
             color: #5a3e2e;
+            -webkit-tap-highlight-color: transparent;
         }
                     .customizer-section {
             background: white;
@@ -341,6 +374,8 @@
             border-radius: 12px;
             font-size: 0.95rem;
             background: white;
+            -webkit-appearance: none;
+            appearance: none;
         }
         .image-upload-area {
             border: 2px dashed #b48b5a;
@@ -349,6 +384,7 @@
             border-radius: 16px;
             cursor: pointer;
             margin-bottom: 10px;
+            -webkit-tap-highlight-color: transparent;
         }
         .btn-save {
             background: #b48b5a;
@@ -361,7 +397,9 @@
             font-size: 1.1rem;
             cursor: pointer;
             margin-top: 10px;
+            -webkit-tap-highlight-color: transparent;
         }
+        .btn-save:active { background: #9a7448; }
         .btn-reset {
             background: #8b6f50;
             color: white;
@@ -371,7 +409,9 @@
             width: 100%;
             margin-top: 8px;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
+        .btn-reset:active { background: #6e5840; }
         .overlay-dark {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -489,8 +529,8 @@
     <button class="btn-save" onclick="saveAllCustomizations()"><i class="fas fa-save"></i> SIMPAN PERMANEN</button>
     <button class="btn-reset" onclick="resetAllToDefault()">↻ Reset Semua ke Default</button>
     <p style="font-size:0.75rem; margin-top:12px; color:#6f5e4e;">Perubahan otomatis tersimpan di browser.</p>
-    </div>
-    <!-- Floating WA/IG -->
+</div>
+<!-- Floating WA/IG -->
 <div class="floating-social">
     <a href="https://wa.me/6287750700748?text=Halo%20Semara.Story%2C%20saya%20tertarik%20dengan%20paket%20fotografi%20Bali." target="_blank" class="floating-btn wa-btn"><i class="fab fa-whatsapp"></i></a>
     <a href="https://instagram.com/semara.story" target="_blank" class="floating-btn ig-btn"><i class="fab fa-instagram"></i></a>
@@ -611,59 +651,80 @@
     <div class="credit"><i class="fas fa-camera"></i> #SemaraStoryBali · Mengabadikan cinta dalam balutan budaya</div>
 </div>
 <script>
-    // EASTER EGG: klik 3x pada "BALI · ISLAND OF GODS"
-    let clickCount = 0;
-    const trigger = document.getElementById('easterTrigger');
-    trigger.addEventListener('click', function(e) {
-        clickCount++;
-        if(clickCount === 3) {
-            openCustomizer();
-            clickCount = 0;
+    // Tunggu DOM selesai
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 DOM loaded - Semara.Story');
+        
+        // EASTER EGG: klik 3x pada "BALI · ISLAND OF GODS"
+        let clickCount = 0;
+        let clickTimer = null;
+        const trigger = document.getElementById('easterTrigger');
+        
+        if(trigger) {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                clickCount++;
+                
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => { clickCount = 0; }, 1000);
+                
+                if(clickCount === 3) {
+                    openCustomizer();
+                    clickCount = 0;
+                    clearTimeout(clickTimer);
+                }
+            });
+            
+            // Untuk iPhone
+            trigger.addEventListener('touchstart', function(e) {
+                // tidak perlu action khusus
+            }, {passive: true});
         }
-        setTimeout(() => { clickCount = 0; }, 1000);
     });
 
     function openCustomizer() {
         document.getElementById('customizerPanel').classList.add('active');
         document.getElementById('overlayDark').classList.add('active');
     }
+    
     function closeCustomizer() {
         document.getElementById('customizerPanel').classList.remove('active');
         document.getElementById('overlayDark').classList.remove('active');
     }
         // Load saved settings from localStorage
     function loadSettings() {
-        const saved = localStorage.getItem('semaraCustom');
-        if(saved) {
-            try {
+        try {
+            const saved = localStorage.getItem('semaraCustom');
+            if(saved) {
                 const s = JSON.parse(saved);
                 applySettings(s);
-                // isi input
-                document.getElementById('bgColor').value = s.bgColor || '#fdf9f2';
-                document.getElementById('cardBg').value = s.cardBg || '#fffcf8';
-                document.getElementById('primaryColor').value = s.primaryColor || '#b48b5a';
-                document.getElementById('siteTitle').value = s.siteTitle || 'Semara.Story';
-                document.getElementById('siteSubhead').value = s.siteSubhead || 'PHOTOGRAPHY';
-                document.getElementById('taglineText').value = s.taglineText || 'Abadikan momen sakral dengan estetika Bali';
-                document.getElementById('headingFontSelect').value = s.headingFont || "'Playfair Display', serif";
-                document.getElementById('bodyFontSelect').value = s.bodyFont || "'Figtree', sans-serif";
                 
-                // gambar custom - PERBAIKAN
+                // isi input
+                if(document.getElementById('bgColor')) document.getElementById('bgColor').value = s.bgColor || '#fdf9f2';
+                if(document.getElementById('cardBg')) document.getElementById('cardBg').value = s.cardBg || '#fffcf8';
+                if(document.getElementById('primaryColor')) document.getElementById('primaryColor').value = s.primaryColor || '#b48b5a';
+                if(document.getElementById('siteTitle')) document.getElementById('siteTitle').value = s.siteTitle || 'Semara.Story';
+                if(document.getElementById('siteSubhead')) document.getElementById('siteSubhead').value = s.siteSubhead || 'PHOTOGRAPHY';
+                if(document.getElementById('taglineText')) document.getElementById('taglineText').value = s.taglineText || 'Abadikan momen sakral dengan estetika Bali';
+                if(document.getElementById('headingFontSelect')) document.getElementById('headingFontSelect').value = s.headingFont || "'Playfair Display', serif";
+                if(document.getElementById('bodyFontSelect')) document.getElementById('bodyFontSelect').value = s.bodyFont || "'Figtree', sans-serif";
+                
+                // gambar custom
                 if(s.customImages) {
                     for(let key in s.customImages) {
                         const el = document.getElementById('img-'+key);
                         if(el && s.customImages[key]) { 
-                            el.style.backgroundImage = `url('${s.customImages[key]}')`; 
+                            el.style.backgroundImage = "url('" + s.customImages[key] + "')"; 
                             el.style.backgroundSize = 'cover';
                             el.style.backgroundPosition = 'center';
                             el.innerHTML = ''; 
                         }
                     }
                 }
-            } catch(e) {
-                console.error('Error loading settings:', e);
-                localStorage.removeItem('semaraCustom');
+                console.log('✅ Settings loaded');
             }
+        } catch(e) {
+            console.error('Error loading settings:', e);
         }
     }
 
@@ -671,23 +732,23 @@
         if(s.bgColor) document.documentElement.style.setProperty('--bg-color', s.bgColor);
         if(s.cardBg) document.documentElement.style.setProperty('--card-bg', s.cardBg);
         if(s.primaryColor) document.documentElement.style.setProperty('--primary-color', s.primaryColor);
-        if(s.siteTitle) document.getElementById('mainTitle').innerText = s.siteTitle;
-        if(s.siteSubhead) document.getElementById('mainSubhead').innerText = s.siteSubhead;
-        if(s.taglineText) {
-            document.getElementById('mainTagline').innerHTML = `<i class="fas fa-feather-alt"></i> ${s.taglineText} <i class="fas fa-feather-alt"></i>`;
+        if(s.siteTitle && document.getElementById('mainTitle')) document.getElementById('mainTitle').innerText = s.siteTitle;
+        if(s.siteSubhead && document.getElementById('mainSubhead')) document.getElementById('mainSubhead').innerText = s.siteSubhead;
+        if(s.taglineText && document.getElementById('mainTagline')) {
+            document.getElementById('mainTagline').innerHTML = '<i class="fas fa-feather-alt"></i> ' + s.taglineText + ' <i class="fas fa-feather-alt"></i>';
         }
         if(s.headingFont) document.documentElement.style.setProperty('--heading-font', s.headingFont);
         if(s.bodyFont) document.documentElement.style.setProperty('--body-font', s.bodyFont);
     }
         function saveAllCustomizations() {
-        const bg = document.getElementById('bgColor').value;
-        const card = document.getElementById('cardBg').value;
-        const primary = document.getElementById('primaryColor').value;
-        const title = document.getElementById('siteTitle').value;
-        const sub = document.getElementById('siteSubhead').value;
-        const tag = document.getElementById('taglineText').value;
-        const hFont = document.getElementById('headingFontSelect').value;
-        const bFont = document.getElementById('bodyFontSelect').value;
+        const bg = document.getElementById('bgColor')?.value || '#fdf9f2';
+        const card = document.getElementById('cardBg')?.value || '#fffcf8';
+        const primary = document.getElementById('primaryColor')?.value || '#b48b5a';
+        const title = document.getElementById('siteTitle')?.value || 'Semara.Story';
+        const sub = document.getElementById('siteSubhead')?.value || 'PHOTOGRAPHY';
+        const tag = document.getElementById('taglineText')?.value || 'Abadikan momen sakral dengan estetika Bali';
+        const hFont = document.getElementById('headingFontSelect')?.value || "'Playfair Display', serif";
+        const bFont = document.getElementById('bodyFontSelect')?.value || "'Figtree', sans-serif";
 
         const settings = { 
             bgColor: bg, 
@@ -704,7 +765,7 @@
         try {
             localStorage.setItem('semaraCustom', JSON.stringify(settings));
             applySettings(settings);
-            alert('✅ Kustomisasi tersimpan permanen! Semua perubahan akan tetap ada setelah refresh.');
+            alert('✅ Kustomisasi tersimpan permanen!');
         } catch(e) {
             alert('❌ Gagal menyimpan: ' + e.message);
         }
@@ -715,7 +776,7 @@
         let imgs = {};
         const packages = ['indoor','outdoor','grad','pawiwahan1','pawiwahan2','memadik'];
         
-        packages.forEach(id => {
+        packages.forEach(function(id) {
             const el = document.getElementById('img-'+id);
             if(el) {
                 const bg = el.style.backgroundImage;
@@ -731,7 +792,7 @@
     }
 
     function resetAllToDefault() {
-        if(confirm('Reset semua pengaturan ke default? Perubahan yang belum disimpan akan hilang.')) {
+        if(confirm('Reset semua pengaturan ke default?')) {
             localStorage.removeItem('semaraCustom');
             location.reload();
         }
@@ -740,16 +801,14 @@
     function resetPackageImages() {
         if(confirm('Reset semua gambar ke default?')) {
             const packages = ['indoor','outdoor','grad','pawiwahan1','pawiwahan2','memadik'];
-            packages.forEach(id => {
+            packages.forEach(function(id) {
                 const el = document.getElementById('img-'+id);
                 if(el) {
                     el.style.backgroundImage = '';
-                    el.style.backgroundSize = '';
-                    el.style.backgroundPosition = '';
-                    el.innerHTML = `<i class="fas ${getDefaultIcon(id)}"></i>`;
+                    el.innerHTML = '<i class="fas ' + getDefaultIcon(id) + '"></i>';
                 }
             });
-            setTimeout(() => saveAllCustomizations(), 100);
+            setTimeout(function() { saveAllCustomizations(); }, 100);
         }
     }
     
@@ -764,59 +823,55 @@
         };
         return map[id] || 'fa-image';
     }
-        // Upload gambar dengan validasi
-    document.getElementById('imageUpload').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if(file) {
-            if(file.size > 5 * 1024 * 1024) {
-                alert('Ukuran file terlalu besar! Maksimal 5MB.');
-                this.value = '';
-                return;
-            }
-            
-            if(!file.type.startsWith('image/')) {
-                alert('File harus berupa gambar!');
-                this.value = '';
-                return;
-            }
-            
-            const reader = new FileReader();
-            reader.onload = function(ev) {
-                const pkg = document.getElementById('packageImageSelector').value;
-                const el = document.getElementById('img-'+pkg);
-                if(el) {
-                    el.style.backgroundImage = `url('${ev.target.result}')`;
-                    el.style.backgroundSize = 'cover';
-                    el.style.backgroundPosition = 'center';
-                    el.innerHTML = '';
-                    
-                    const pkgName = document.getElementById('packageImageSelector').selectedOptions[0].text;
-                    console.log(`✅ Gambar untuk ${pkgName} berhasil diupload`);
+        // Upload gambar
+    const imageUpload = document.getElementById('imageUpload');
+    if(imageUpload) {
+        imageUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if(file) {
+                if(file.size > 5 * 1024 * 1024) {
+                    alert('Ukuran file terlalu besar! Maksimal 5MB.');
+                    this.value = '';
+                    return;
                 }
-            };
-            reader.readAsDataURL(file);
-        }
-        this.value = '';
-    });
+                
+                if(!file.type.startsWith('image/')) {
+                    alert('File harus berupa gambar!');
+                    this.value = '';
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    const pkgSelect = document.getElementById('packageImageSelector');
+                    if(pkgSelect) {
+                        const pkg = pkgSelect.value;
+                        const el = document.getElementById('img-'+pkg);
+                        if(el) {
+                            el.style.backgroundImage = "url('" + ev.target.result + "')";
+                            el.style.backgroundSize = 'cover';
+                            el.style.backgroundPosition = 'center';
+                            el.innerHTML = '';
+                            console.log('✅ Gambar berhasil diupload');
+                        }
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+            this.value = '';
+        });
+    }
 
-    window.addEventListener('DOMContentLoaded', function() {
-        console.log('🔍 Mengecek localStorage...');
-        const saved = localStorage.getItem('semaraCustom');
-        if(saved) {
-            console.log('✅ Data tersimpan ditemukan:', JSON.parse(saved));
-        } else {
-            console.log('ℹ️ Belum ada data tersimpan');
-        }
-    });
-
-    window.onload = function() { 
+    // Load settings saat halaman siap
+    window.addEventListener('load', function() {
         loadSettings();
         console.log('🚀 Semara.Story siap! Klik "BALI · ISLAND OF GODS" 3x untuk kustomisasi.');
-    };
+    });
     
+    // Debug functions
     window.debugStorage = function() {
         const data = localStorage.getItem('semaraCustom');
-        console.log('📦 Data di localStorage:', data ? JSON.parse(data) : 'Kosong');
+        console.log('📦 Data:', data ? JSON.parse(data) : 'Kosong');
         return data;
     };
     
