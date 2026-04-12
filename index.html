@@ -86,7 +86,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
-        /* GAMBAR - UKURAN PAS, TIDAK TERPOTONG */
+        /* GAMBAR - UKURAN PAS, TAJAM, TIDAK TERPOTONG */
         .card-img {
             width: 100%;
             height: 200px;
@@ -102,6 +102,12 @@
             position: relative;
             overflow: hidden;
             background-color: #dccfc2;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
         }
 
         /* Default background colors */
@@ -116,6 +122,10 @@
             font-size: 50px;
             color: #4a3729;
             text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+        }
+
+        .card-img.has-image {
+            background-color: transparent;
         }
 
         .card-img.has-image i {
@@ -502,9 +512,9 @@
             <i class="fas fa-feather-alt"></i> Abadikan momen sakral dengan estetika Bali <i class="fas fa-feather-alt"></i>
         </div>
     </div>
-        <!-- PAKET 1 - Indoor Prewedding -->
+        <!-- HALAMAN 1 - Indoor Prewedding -->
     <div class="card">
-        <div class="card-img img-1 has-image" id="img-1" style="background-image: url('https://i.ibb.co.com/M5NdFTsR/Screenshot-20260412-080559-Whats-App.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="card-img img-1 has-image" id="img-1" style="background-image: url('https://i.ibb.co.com/M5NdFTsR/Screenshot-20260412-080559-Whats-App.jpg'); background-size: cover; background-position: center; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></div>
         <div class="card-title">
             <i class="fas fa-door-open"></i>
             <h2>Prewedding <small>Indoor Package</small></h2>
@@ -514,14 +524,14 @@
             <li><i class="fas fa-check-circle"></i> 15 Editing Photos</li>
             <li><i class="fas fa-images"></i> All Original File Photos</li>
             <li><i class="fas fa-video"></i> Video Slideshow</li>
-            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak 40x60 (16R Jumbo)</li>
+            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak Foto Ukuran 40x60 (16R Jumbo)</li>
         </ul>
         <div class="badge"><i class="fas fa-temple"></i> Nuansa Bali · Indoor elegan</div>
     </div>
 
-    <!-- PAKET 2 - Outdoor Prewedding -->
+    <!-- HALAMAN 2 - Outdoor Prewedding -->
     <div class="card">
-        <div class="card-img img-2 has-image" id="img-2" style="background-image: url('https://i.ibb.co.com/60nFLRZ3/Screenshot-20260412-080633-Whats-App.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="card-img img-2 has-image" id="img-2" style="background-image: url('https://i.ibb.co.com/60nFLRZ3/Screenshot-20260412-080633-Whats-App.jpg'); background-size: cover; background-position: center; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></div>
         <div class="card-title">
             <i class="fas fa-umbrella-beach"></i>
             <h2>Prewedding <small>Outdoor Package</small></h2>
@@ -531,14 +541,14 @@
             <li><i class="fas fa-check-circle"></i> 20 Editing Photos</li>
             <li><i class="fas fa-images"></i> All Original File Photos</li>
             <li><i class="fas fa-video"></i> Video Slideshow</li>
-            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak 40x60 (16R Jumbo)</li>
+            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak Foto Ukuran 40x60 (16R Jumbo)</li>
         </ul>
         <div class="badge"><i class="fas fa-leaf"></i> Spot alam Bali · Pantai/Sawah</div>
     </div>
 
-    <!-- PAKET 3 - Graduation -->
+    <!-- HALAMAN 3 - Graduation -->
     <div class="card">
-        <div class="card-img img-3 has-image" id="img-3" style="background-image: url('https://i.ibb.co.com/kszLD8nn/Screenshot-20260412-080643-Whats-App.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="card-img img-3 has-image" id="img-3" style="background-image: url('https://i.ibb.co.com/kszLD8nn/Screenshot-20260412-080643-Whats-App.jpg'); background-size: cover; background-position: center; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></div>
         <div class="card-title">
             <i class="fas fa-user-graduate"></i>
             <h2>Graduation <small>Graduate & Family</small></h2>
@@ -553,9 +563,9 @@
         </ul>
         <div class="badge"><i class="fas fa-university"></i> Kelulusan berkesan</div>
     </div>
-        <!-- PAKET 4 - Pawiwahan 6 Jam -->
+        <!-- HALAMAN 4 - Pawiwahan 6 Jam -->
     <div class="card">
-        <div class="card-img img-4 has-image" id="img-4" style="background-image: url('https://i.ibb.co.com/cXLws512/Screenshot-20260412-080658-Whats-App.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="card-img img-4 has-image" id="img-4" style="background-image: url('https://i.ibb.co.com/cXLws512/Screenshot-20260412-080658-Whats-App.jpg'); background-size: cover; background-position: center; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></div>
         <div class="card-title">
             <i class="fas fa-clock"></i>
             <h2>Pawiwahan <small>Foto & Video 6 Jam</small></h2>
@@ -565,15 +575,15 @@
             <li><i class="fas fa-clock"></i> 6 Jam Kerja</li>
             <li><i class="fas fa-check-circle"></i> 200 Foto Edit</li>
             <li><i class="fas fa-cloud"></i> All File Original by Google Drive</li>
-            <li><i class="fas fa-video"></i> Video Full & Highlight 2-3 Menit</li>
-            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak 40x60 (16R Jumbo)</li>
+            <li><i class="fas fa-video"></i> Video Full & Video Highlight 2-3 Menit</li>
+            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak Foto Ukuran 40x60 (16R Jumbo)</li>
         </ul>
         <div class="badge"><i class="fas fa-praying-hands"></i> Upacara sakral · Dokumentasi lengkap</div>
     </div>
 
-    <!-- PAKET 5 - Pawiwahan 4 Jam -->
+    <!-- HALAMAN 5 - Pawiwahan 4 Jam -->
     <div class="card">
-        <div class="card-img img-5 has-image" id="img-5" style="background-image: url('https://i.ibb.co.com/pj5tTJ8j/Screenshot-20260412-080705-Whats-App.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="card-img img-5 has-image" id="img-5" style="background-image: url('https://i.ibb.co.com/pj5tTJ8j/Screenshot-20260412-080705-Whats-App.jpg'); background-size: cover; background-position: center; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></div>
         <div class="card-title">
             <i class="fas fa-hourglass-start"></i>
             <h2>Pawiwahan <small>Foto & Video 4 Jam</small></h2>
@@ -583,15 +593,15 @@
             <li><i class="fas fa-clock"></i> 4 Jam Kerja</li>
             <li><i class="fas fa-check-circle"></i> 150 Foto Edit</li>
             <li><i class="fas fa-cloud"></i> All File Original by Google Drive</li>
-            <li><i class="fas fa-video"></i> Video Full & Highlight 2-3 Menit</li>
-            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak 40x60 (16R Jumbo)</li>
+            <li><i class="fas fa-video"></i> Video Full & Video Highlight 2-3 Menit</li>
+            <li><i class="fas fa-print"></i> <strong>Free</strong> 1 Cetak Foto Ukuran 40x60 (16R Jumbo)</li>
         </ul>
         <div class="badge"><i class="fas fa-camera"></i> Efisien & elegan</div>
     </div>
 
-    <!-- PAKET 6 - Memadik 10 Jam -->
+    <!-- HALAMAN 6 - Memadik & Pawiwahan 10 Jam -->
     <div class="card">
-        <div class="card-img img-6 has-image" id="img-6" style="background-image: url('https://i.ibb.co.com/GfNxy2WW/Screenshot-20260412-080713-Whats-App.jpg'); background-size: cover; background-position: center;"></div>
+        <div class="card-img img-6 has-image" id="img-6" style="background-image: url('https://i.ibb.co.com/GfNxy2WW/Screenshot-20260412-080713-Whats-App.jpg'); background-size: cover; background-position: center; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></div>
         <div class="card-title">
             <i class="fas fa-gem"></i>
             <h2>Memadik & Pawiwahan <small>Foto & Video 10 Jam</small></h2>
@@ -601,8 +611,8 @@
             <li><i class="fas fa-clock"></i> 10 Jam Kerja</li>
             <li><i class="fas fa-check-circle"></i> 400 Foto Edit</li>
             <li><i class="fas fa-cloud"></i> All File Original by Google Drive</li>
-            <li><i class="fas fa-video"></i> Video Full & Highlight 2-3 Menit</li>
-            <li><i class="fas fa-print"></i> <strong>Free 2 Cetak</strong> 40x60 (16R Jumbo)</li>
+            <li><i class="fas fa-video"></i> Video Full & Video Highlight 2-3 Menit</li>
+            <li><i class="fas fa-print"></i> <strong>Free 2 Cetak</strong> Foto Ukuran 40x60 (16R Jumbo)</li>
         </ul>
         <div class="badge"><i class="fas fa-gem"></i> Paket lengkap · Memadik & Resepsi</div>
     </div>
@@ -613,7 +623,7 @@
             <i class="fab fa-whatsapp"></i> +62 877-5070-0748 · 
             <i class="fab fa-instagram"></i> @semara.story
         </div>
-        <div class="credit"><i class="fas fa-camera"></i> #SemaraStoryBali</div>
+        <div class="credit"><i class="fas fa-camera"></i> #SemaraStoryBali · Mengabadikan cinta dalam balutan budaya</div>
     </div>
 </div>
 <script>
